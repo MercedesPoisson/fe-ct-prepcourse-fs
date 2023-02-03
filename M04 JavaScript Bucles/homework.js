@@ -88,8 +88,7 @@ function colors(color) {
          
       default:
          return "Color not found";
-         break;
-   }
+      }
 }
 
 function esDiezOCinco(num) {
@@ -174,12 +173,12 @@ function esPrimo(num) {
    // [Pista 2]: puedes resolverlo utilizando un `bucle for`.
    // [Nota]: los números negativos, 0 y 1 NO son números primos.
    // Tu código:
-   if (num == 0 || num == 1 || num == 4) {
-      return false;
-   } else { 
-      return false;
+   if(num <= 0 || num === 1) return false;
+      for(var i = 2; i < num; i++) {
+         if(num % i === 0) return false;
+      }
+      return true;
    }
-}
 
 function esVerdadero(valor) {
    // Si "valor" es verdadero retornar "Soy verdadero".
@@ -196,10 +195,10 @@ function tieneTresDigitos(num) {
    // Si el número recibido tiene tres dígitos retornar true.
    // Caso contrario, retornar false.
    // Tu código:
-   if (num.length > 2 && num.length < 4) {
+   if (num > 99 && num < 1000) {
       return true;
    } else {
-      return false; maxlen
+      return false;
    }
 }
 
