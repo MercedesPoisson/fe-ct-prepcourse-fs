@@ -97,13 +97,29 @@ function multiplicarArgumentos() {
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
-   
-
+   if (arguments.length === 0) {
+      return 0;
+   } else if (arguments.length === 1) {
+      return arguments[0];
+   } else {
+      let product = 1;
+      for (let i = 0; i < arguments.length; i++) {
+         product *= arguments[i];
+      }
+   return product;
+   }
 }
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
+   let cuentoElementos = 0;
+   for (let i = 0; i < array.length; i++) {
+      if (array[i] > 18) {
+         cuentoElementos++;
+      }
+   }
+   return cuentoElementos;
   
 }
 
@@ -112,19 +128,30 @@ function diaDeLaSemana(numeroDeDia) {
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+   if (numeroDeDia === 1 || numeroDeDia === 7) { 
+      return "Es fin de semana";
+   } else {
+      return "Es dia laboral";
+   }
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
+   return num.toString().startsWith("9");
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar true.
    // Caso contrario retornar false.
    // Tu código:
-  
+   for (let i = 1; i < array.length; i++) {
+      if (array[i] !== array[0]) {
+        return false;
+      }
+    }
+    return true;
 }
 
 function mesesDelAño(array) {
@@ -132,14 +159,9 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-   var mesesDelAño = [];
-   if (array.includes ("Enero" && "Marzo" && "Noviembre")) {
-   mesesDelAño.push("Enero", "Marzo", "Noviembre");
-   }
-   return mesesDelAño;
-    {
-      return "No se encontraron los meses pedidos";
-   }
+  let mesesDelAño = ["Enero", "Marzo", "Noviembre"];
+  let encontrarMes = array.filter(month => mesesDelAño.includes(month));
+  return encontrarMes.length === mesesDelAño.length ? encontrarMes : "No se encontraron los meses pedidos";
 }
 
 function tablaDelSeis() {
@@ -173,6 +195,19 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   let resultado = [];
+  for (let i = 0; i < 10; i++) {
+    num += 2;
+    resultado.push(num);
+    if (num === i) {
+      break;
+    }
+  }
+  if (resultado.length < 10) {
+    return "Se interrumpió la ejecución";
+  } else {
+    return resultado;
+  }
 }
 
 function continueStatement(num) {
@@ -182,6 +217,15 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   let resultado = [];
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      continue;
+    }
+    num += 2;
+    resultado.push(num);
+  }
+  return resultado;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
