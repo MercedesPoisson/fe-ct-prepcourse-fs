@@ -68,9 +68,12 @@ function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
-   var agregarNumeros = arrayOfNums.reduce((acc,val)=> acc + val, 0);
-   return agregarNumeros;
-
+   // var agregarNumeros = arrayOfNums.reduce((acc,val)=> acc + val, 0);
+   // return agregarNumeros;
+   var resultado = 0;
+   for (var i = 0; i < arrayOfNums.lenght ; i++) {
+      resultado = resultado + arrayOfNums[i]
+   }
 }
 
 function promedioResultadosTest(resultadosTest) {
@@ -88,8 +91,8 @@ function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
-   let max = Math.max.apply(null, arrayOfNums);
-   return(max);
+   (null, arrayOfNums);
+   return Math.max(...arrayOfNums);
 }
 
 function multiplicarArgumentos() {
@@ -159,9 +162,18 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
-  let mesesDelAño = ["Enero", "Marzo", "Noviembre"];
-  let encontrarMes = array.filter(month => mesesDelAño.includes(month));
-  return encontrarMes.length === mesesDelAño.length ? encontrarMes : "No se encontraron los meses pedidos";
+//   let mesesDelAño = ["Enero", "Marzo", "Noviembre"];
+//   let encontrarMes = array.filter(month => mesesDelAño.includes(month));
+//   return encontrarMes.length === mesesDelAño.length ? encontrarMes : "No se encontraron los meses pedidos";
+var nuevoArray = []
+   for(var i = 0; i < array.lenght ; i++) {
+      if(array[i]  === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
+         nuevoArray.push(array[i])
+      }
+   }
+   if(nuevoArray.lenght === 3){
+      return nuevoArray
+   } else return "No se encontraron los meses pedidos";
 }
 
 function tablaDelSeis() {
