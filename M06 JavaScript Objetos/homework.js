@@ -46,8 +46,7 @@ function invocarMetodo(objeto, metodo) {
    // Esta propiedad contiene una función en su interior. Debes invocarla/ejecutarla.
    // [NOTA]: no necesitar retornar nada.
    // Tu código:
-   // var objeto = {
-   //    metodo: function()}
+objeto[metodo] ();
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
@@ -61,24 +60,39 @@ function eliminarPropiedad(objeto, propiedad) {
    // El parámetro "propiedad" es una propiedad del objeto que recibes.
    // Debes eliminarla del objeto y retornarlo finalmente.
    // Tu código:
+   delete objeto[propiedad];
+   return objeto;
 }
 
 function tieneEmail(objetoUsuario) {
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   // osea que lo que hay que verificar es que exista la propidad email?
+     if (objetoUsuario.email) {
+      return true;    
+   } else {
+      return false;
+         }
 }
 
 function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   if (objeto.hasOwnProperty(propiedad)) {
+      return true;
+        } else {
+          return false;
+      }
 }
 
 function verificarPassword(objetoUsuario, password) {
    // Verifica si la propiedad "password" del "objetoUsuario" coincide con el parámetro "password".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   return objetoUsuario.password === password;
+   
 }
 
 function actualizarPassword(objetoUsuario, nuevaPassword) {
@@ -86,6 +100,9 @@ function actualizarPassword(objetoUsuario, nuevaPassword) {
    // La nueva contraseña la recibes por parámetro.
    // Retornar el objeto.
    // Tu código:
+   objetoUsuario.password = nuevaPassword
+     return objetoUsuario;
+
 }
 
 function agregarAmigo(objetoUsuario, nuevoAmigo) {
@@ -93,6 +110,9 @@ function agregarAmigo(objetoUsuario, nuevoAmigo) {
    // Debes agregar el "nuevoAmigo" al final de este arreglo.
    // Retornar el objeto.
    // Tu código:
+   objetoUsuario.amigos.push(nuevoAmigo);
+   return objetoUsuario;
+
 }
 
 function pasarUsuarioAPremium(objetoMuchosUsuarios) {
@@ -101,6 +121,10 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
+   let newArray = objetoMuchosUsuarios.forEach(usuario => {
+      usuario.esPremium = true
+         });
+         return objetoMuchosUsuarios;
 }
 
 function sumarLikesDeUsuario(objetoUsuario) {
@@ -109,6 +133,12 @@ function sumarLikesDeUsuario(objetoUsuario) {
    // Cada post posee una propiedad llamada "likes". Esta propiedad es un número.
    // Debes sumar los likes de todos los post y retornar el resultado.
    // Tu código:
+   var contador = 0
+   objetoUsuario.posts.forEach(post => {
+      contador = contador + post.likes
+   });
+
+   return contador;
 }
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
