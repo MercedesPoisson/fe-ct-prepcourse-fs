@@ -80,11 +80,8 @@ function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-   if (objeto.hasOwnProperty(propiedad)) {
-      return true;
-        } else {
-          return false;
-      }
+   return objeto.hasOwnProperty(propiedad)
+    
 }
 
 function verificarPassword(objetoUsuario, password) {
@@ -121,12 +118,16 @@ function pasarUsuarioAPremium(objetoMuchosUsuarios) {
    // Define esta propiedad de todos los usuarios como true.
    // Retornar el arreglo.
    // Tu código:
-   let newArray = objetoMuchosUsuarios.forEach(usuario => {
-      usuario.esPremium = true
-         });
-         return objetoMuchosUsuarios;
-}
+   // let newArray = objetoMuchosUsuarios.forEach(usuario => {
+   //    usuario.esPremium = true
+   //       });
+   //       return objetoMuchosUsuarios;
 
+for(var i = 0; i < objetoMuchosUsuarios.lenght ; i++){
+   objetoMuchosUsuarios[i].esPremium = true;
+}
+return objetoMuchosUsuarios;
+}
 function sumarLikesDeUsuario(objetoUsuario) {
    // El parámetro "objetoUsuario" tiene una propiedad llamada "posts" que es un arreglo.
    // Este arreglo contiene objetos (post).
@@ -139,6 +140,11 @@ function sumarLikesDeUsuario(objetoUsuario) {
    });
 
    return contador;
+   // var suma = 0;
+   // for(var i = 0; i < objetoUsuario.posts.lenght ; i++) {
+   //    suma = suma + objetoUsuario.posts[i].likes
+   // }
+   // return suma;
 }
 
 function agregarMetodoCalculoDescuento(objetoProducto) {
